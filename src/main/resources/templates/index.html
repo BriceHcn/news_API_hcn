@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html th:replace="~{layout :: layout(~{::title}, ~{::content})}" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:fragment="title">News API hcn</title>
+</head>
+<body>
+
+
+<div th:fragment="content">
+
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th></th>
+            <th>titre</th>
+            <th>date</th>
+            <th>author</th>
+            <th>description</th>
+            <th></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="article : ${articles}" th:object="${article}">
+
+            <td><img th:src="${article.urlToImage}" alt="" style="width:100px; height:auto;"></td>
+            <td th:text="${article.title}">titre</td>
+            <td th:text="${article.publishedAt.toString()}">date</td>
+            <td th:text="${article.author}">author</td>
+            <td th:text="${article.description}">description</td>
+            <td><a th:href="${article.url}" class="btn btn-danger" target="_blank"><i class="ri-play-line"></i></a></td>
+
+        </tr>
+
+        <!-- <tr th:if="${articles.totalElements == 0}">
+            <td colspan="4">Aucune partie</td>
+        </tr> -->
+        </tbody>
+    </table>
+
+
+
+
+</div>
+</body>
+</html>

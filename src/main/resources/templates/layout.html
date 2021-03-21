@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://wwwthymeleaf.org" th:fragment="layout (title,content)">
+<head>
+    <!-- meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <!-- page title will be replaced by given fragment -->
+
+    <title th:replace="${title}">application title</title>
+</head>
+<body>
+<!-- navigation bar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#" th:href="@{/}">News API hcn</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="#" th:href="@{/}">Accueil</a>
+            </li>
+            <li class="nav-item dropdown" >
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Catégories
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#" th:href="@{/category/business}">Business</a>
+                    <a class="dropdown-item" href="#" th:href="@{/category/health}">Santé</a>
+                    <a class="dropdown-item" href="#" th:href="@{/category/entertainment}">Divertissement</a>
+                    <a class="dropdown-item" href="#" th:href="@{/category/science}">Science</a>
+                    <a class="dropdown-item" href="#" th:href="@{/category/sports}">Sports</a>
+                    <a class="dropdown-item" href="#" th:href="@{/category/technology}">Technologies</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+
+<div class="container"  style="max-width: 85%;">
+    <div class="jumbotron" th:replace="${content}"> 
+        <!-- content to replace -->
+        <p>content goes here</p>
+    </div>
+</div>
+
+<footer class="fixed-bottom bg-dark">
+    <div class="container">
+        <a class="text-light" th:href="@{/}"> News API hcn</a>
+    </div>
+</footer>
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>
