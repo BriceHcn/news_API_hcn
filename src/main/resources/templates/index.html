@@ -12,10 +12,11 @@
         <thead class="thead-dark">
         <tr>
             <th></th>
-            <th>titre</th>
-            <th>date</th>
-            <th>auteur</th>
-            <th>description</th>
+            <th>Titre</th>
+            <th>Date</th>
+            <th>Site</th>
+            <th>Auteur</th>
+            <th>Description</th>
             <th></th>
         </tr>
         </thead>
@@ -24,11 +25,12 @@
         <tr th:each="article : ${articles}" th:object="${article}">
 
             <td><img th:src="${article.urlToImage}" alt="" style="width:100px; height:auto;"></td>
-            <td th:text="${article.title}">titre</td>
-            <td th:text="${article.publishedAt.toString()}">date</td>
-            <td th:text="${article.author}">author</td>
-            <td th:text="${article.description}">description</td>
-            <td><a th:href="${article.url}" class="btn btn-danger" target="_blank"><i class="ri-play-line"></i></a></td>
+            <td th:text="${article.getTitle()}">titre</td>
+            <td th:text="${article.publishedAt.toLocaleString()}">date</td>
+            <td th:text="${article.getSource().getName()}">author</td>
+            <td th:text="${article.getAuthor()}">author</td>
+            <td th:text="${article.getDescription()}">description</td>
+            <td><a th:href="${article.getUrl()}" class="btn btn-danger" target="_blank"><i class="ri-play-line"></i></a></td>
 
         </tr>
 
