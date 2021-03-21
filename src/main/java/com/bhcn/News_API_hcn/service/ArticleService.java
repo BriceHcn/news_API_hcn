@@ -17,7 +17,8 @@ public class ArticleService {
 
     public List<ArticleData> getArticles(String category, String language) {
         RestTemplate test = new RestTemplate();
-        String apiKey = configProp.getConfigValue("bhcn.apiKey");
+        //String apiKey = configProp.getConfigValue("bhcn.apiKey");
+        String apiKey = System.getenv("apiKey");
         String request = "https://newsapi.org/v2/top-headlines?apiKey=" + apiKey + "&country="+language+"&category="+category;
         NewsResult result = test.getForObject(request, NewsResult.class);
 
